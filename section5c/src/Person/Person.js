@@ -26,10 +26,10 @@ const person = (props) => {
 
     return (
       // <div className="Person">
-      <StyledDiv>
+      <React.Fragment>
         <p onClick={props.click}>{props.id}: I'm a {props.name} and I am {props.age} years old!</p>
         <input type="text" onChange={props.changed} value={props.name} />
-      </StyledDiv>
+      </React.Fragment>
     );
 }
 

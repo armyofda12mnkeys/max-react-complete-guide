@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+//import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -47,7 +48,17 @@ class App extends Component {
 
   render() {
     console.log(this.state);
-    
+    let btnClass = [classes.Button]
+
+
+    const assignedClasses = [];
+    if (this.state.persons.length <= 2 ) {
+      assignedClasses.push(classes.red); //classes = ['red'];
+    }
+    if (this.state.persons.length <= 1 ) {
+      assignedClasses.push(classes.bold); //classes = ['red', 'bold'];
+    }
+
     /*const style = {
       backgroundColor: 'red',
       font: 'inherit',
@@ -60,14 +71,18 @@ class App extends Component {
       }
     };*/
 
-    if(this.state.showPersons ) 
-      style.backgroundColor = 'yellow';
+    //if(this.state.showPersons ) 
+    //  style.backgroundColor = 'yellow';
+    if(this.state.showPersons) {
+      btnClass.push(classes.Red);
+    }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I'm a React App</h1>
-
-        <button onClick={ () => this.togglePersonsHandler() } style={style}>Toggle Persons</button>
+        <p className={assignedClasses.join(' ')}>This is really working!!!</p>
+        <button onClick={ () => this.togglePersonsHandler() } className={btnClass.join(' ')}>Toggle Persons</button>
+        { /*<button onClick={ () => this.togglePersonsHandler() } className={classes.Button}>Toggle Persons</button>*/ }
         { 
           this.state.showPersons 
           ?
