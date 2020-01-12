@@ -1,0 +1,23 @@
+.Child {
+    background-color: red;
+}
+.Child:hover {
+    background-color: green;
+}
+
+/*
+Not sure how to handle something like this... 
+Best I can think of is maybe a :global but not sure how that would work since child's classname is dynamic
+*/
+.Parent1 .Child {
+    background-color: blue;
+}
+.Parent1 .Child:hover {
+    background-color: lightblue;
+}
+.Parent2 .Child {
+    background-color: purple;
+}
+.Parent2 .Child:hover {
+    background-color: lightpink;
+}
