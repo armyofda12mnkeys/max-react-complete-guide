@@ -6,7 +6,7 @@ const parent2 = () => {
     return (
         <div className="Parent2">
             <div>child with parent2 (how to get CSS Modules to do a rule like this without an 'ugly' solution):</div>
-            <Child>test</Child>
+            <Child parentName="parent2">test</Child>
         </div>
     );
 }
