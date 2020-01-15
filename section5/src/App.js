@@ -19,7 +19,7 @@ class App extends Component {
   deletePersonHandler = (personIndex) => {
     console.log('TEST');
     //const persons = this.state.persons;
-    const persons = [... this.state.persons]; //make a copy vs reference (above is a pointer and mutating state directly which isn't good)
+    const persons = [...this.state.persons]; //make a copy vs reference (above is a pointer and mutating state directly which isn't good)
     persons.splice(personIndex,1);
     this.setState({
       persons: persons
