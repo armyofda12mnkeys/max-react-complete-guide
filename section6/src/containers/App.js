@@ -2,11 +2,26 @@ import React, { Component } from 'react';
 //import './App.css';
 import classes from './App.module.css';
 import Persons from '../components/Persons/Persons';
-import Person from '../components/Persons/Person/Person';
+//import Person from '../components/Persons/Person/Person';
 import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constuctor');
+    this.state = {
+      persons: [ 
+        {id: 101, name: 'Max', age: 28},
+        {id: 102, name: 'Manu', age: 29},
+        {id: 103, name: 'Steph', age: 30},
+      ],
+      otherStateProp: 'test',
+      showPersons : false
+    }
+  }
+
+  /*
   state = {
     persons: [ 
       {id: 101, name: 'Max', age: 28},
@@ -16,6 +31,33 @@ class App extends Component {
     otherStateProp: 'test',
     showPersons : true
   }
+  */
+
+  static getDerivedStateFromProps(props,state) {
+    console.log('[App.js] getDerivedStateFromProps');
+    return state; //return updated state
+  }
+  /*componentWillMount() { //legacy being removed
+    console.log('[App.js] componentWillMount');
+  }*/
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+  }
+
+  shouldComponentUpdate() {
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+  getSnapshotBeforeUpdate(prevProp, prevState) {
+    console.log('[App.js] getSnapshotBeforeUpdate...');
+    //return null;
+    return { message: 'SnapShot' };
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('[App.js] componentDidUpdate');
+    console.log(snapshot);
+  }
+
 
 
   deletePersonHandler = (personIndex) => {
@@ -49,6 +91,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render');
     console.log(this.state);
     let persons = null;
 
